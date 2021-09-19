@@ -1,0 +1,10 @@
+aiosmtpd==1.4.2
+atpublic==2.3
+attrs==21.2.0
+backports.entry-points-selectable==1.1.0
+bottle==0.12.19
+distlib==0.3.2
+filelock==3.0.12
+platformdirs==2.2.0
+six==1.16.0
+virtualenv==20.7.2
