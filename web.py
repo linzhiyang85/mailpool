@@ -59,4 +59,4 @@ if __name__ == '__main__':
     mail_server = threading.Thread(target=start_mail)
     mail_server.start()
 
-    run(host='127.0.0.1', port=8080)
+    run(host='0.0.0.0', port=8080)
