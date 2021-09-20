@@ -11,8 +11,8 @@ class SmtpHandler:
 
 
     async def handle_RCPT(self, server, session, envelope, address, rcpt_options):
-        # if not address.endswith('@example.com'):
-        #     return '550 not relaying to that domain'
+        if not address.endswith('@mailpool.xyz'):
+            return '550 not relaying to that domain, only domain @mailpool.xyz is accepted'
         envelope.rcpt_tos.append(address)
 
         return '250 OK'
@@ -70,7 +70,7 @@ def start_mail():
     loop = asyncio.get_event_loop()
 
     handler = SmtpHandler()
-    controller = Controller(handler, hostname='127.0.0.1', port='8025', ready_timeout=30)
+    controller = Controller(handler, hostname='0.0.0.0', port='8025', ready_timeout=30)
     controller.start()
 
     try:
