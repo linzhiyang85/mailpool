@@ -54,6 +54,15 @@ def read_message(email, id):
         html = f'<p>No message for {email} with id {id}</p>'
     return html
 
+@route('/clear')
+@route('/clear/')
+def clear_old_mails():
+    try:
+        clear_older_than_seven_days()
+        html = f'<p>Done</p>'
+    except Exception as ex:
+        html = f'<p>Error: {str(ex)}</p>'
+    return html
 
 if __name__ == '__main__':
     mail_server = threading.Thread(target=start_mail)

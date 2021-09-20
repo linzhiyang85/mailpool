@@ -1,4 +1,5 @@
 import re
+import datetime
 big_dict = {}
 latest_addresses = {}
 
@@ -58,3 +59,15 @@ def add_message(address, message):
 def get_latest_updated_emails():
     global latest_addresses
     return latest_addresses
+
+def clear_older_than_seven_days():
+    global big_dict, latest_addresses
+    seven_days_ago = datetime.datetime.now() - datetime.timedelta(days=7)
+    obsolete_addresses = []
+    for address, message_list in big_dict.items():
+        if all([msg['received'] <= seven_days_ago for msg in message_list]):
+            obsolete_addresses.append(address)
+    for address in obsolete_addresses:
+        big_dict.pop(address)
+        latest_addresses.pop(address)
+    return True
