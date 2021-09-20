@@ -3,7 +3,7 @@ big_dict = {}
 latest_addresses = {}
 
 def is_valid_address(address):
-    if address and isinstance(address, str) and re.match('^[^.@]+@[^.@]+.[^.@]+$', address):
+    if address and isinstance(address, str) and re.match('^[^@]+@[^@]+.[^@]+$', address):
         return True
     else:
         return False
