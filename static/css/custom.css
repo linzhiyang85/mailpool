@@ -1,0 +1,75 @@
+main {
+    display: block;
+}
+
+.mail-container {
+    width: 100%;
+    max-width: 660px;
+    padding: 15px;
+    margin: auto;
+}
+
+.mail-preview {
+    /* width: 350px; */
+    /* max-width: 100%; */
+    font-size: .875rem;
+    pointer-events: auto;
+    background-color: rgba(255,255,255,.85);
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgb(0 0 0 / 15%);
+    border-radius: .25rem;
+    margin-top: 1rem;
+}
+
+.mail-preview-header {
+    border-bottom: 1px solid rgba(0,0,0,.05);
+}
+.mail-preview-to {
+    text-align: left;
+    padding-left: 15px;
+}
+.mail-preview-received {
+    float: right!important;
+    padding-right: .75rem;
+}
+
+.mail-preview-subject {
+    padding: .75rem;
+    word-wrap: break-word;
+}
+
+#copy_mail_address_to_clipboard {
+    cursor: pointer;
+    color: #0d6efd;
+}
+
+#email_copied {
+    color: #1a8b57;
+    margin-top: 0.25rem;
+    margin-left: 0.2rem;
+}
+
+.view-inbox {
+    margin-top: 4rem;
+}
+
+.pick-address {
+    margin-top: 4rem;
+}
+.pick-address a {
+    margin-left: .25rem;
+}
+
+
+.message-container {
+    width: 100%;
+    max-width: 880px;
+    padding: 15px;
+    margin: auto;
+}
+
+.mail-detail-received {
+    float: right!important;
+    padding-right: .75rem;
+}
