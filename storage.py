@@ -9,13 +9,19 @@ def is_valid_address(address):
     else:
         return False
 
-def get_email_subjects(address):
+def get_email_messages(address):
     global big_dict
     if is_valid_address(address) and address in big_dict:
         messages = big_dict.get(address)
         messages.sort(key=lambda mail:mail['received'])
-        return [{'id':message['id'], 'received': message['received'], 'subject':message['subject']}\
-                    for message in messages]
+        return messages
+        # return [{'id':message['id'],
+        #          'from': message['from'],
+        #          'received': message['received'],
+        #          'subject':message['subject'],
+        #          'body': message['body']
+        #          }
+        #             for message in messages]
     else:
         return []
 
@@ -54,7 +60,7 @@ def add_message(address, message):
                             earliest_received = received
                             earliest_address = address
                 latest_addresses.pop(earliest_address)
-            latest_addresses[address] = message['received']
+            latest_addresses[address] = {'received': message['received'], 'subject': message['subject']}
 
 def get_latest_updated_emails():
     global latest_addresses

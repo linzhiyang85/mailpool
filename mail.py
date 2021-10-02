@@ -27,7 +27,11 @@ class SmtpHandler:
             'body': ''
         }
         content = envelope.content.decode('utf8', errors='replace').splitlines()
-        enve_dict['body'] = content
+        enve_dict['body'] = '\n'.join([row for row in content if not (row.strip().startswith('From:') \
+                                                            or row.strip().startswith('To:') \
+                                                            or row.strip().startswith('Subject:') \
+                                                            or row.strip().startswith('Message-ID:'))]
+                                      )
         for line in content:
             try:
                 segments =line.split(sep=':', maxsplit=1)

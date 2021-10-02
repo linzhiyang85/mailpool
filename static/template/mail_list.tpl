@@ -6,10 +6,10 @@
 
     <!-- Bootstrap CSS -->
 <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">-->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/custom.css" rel="stylesheet">
+    <link href="/static/css/custom.css" rel="stylesheet">
 
     <title>喵铺 - 临时邮箱助手</title>
 </head>
@@ -21,38 +21,19 @@
             <h2>近期收件</h2>
         </div>
         <div class="mail-list">
-            <div class="mail-preview" title="点击查看详情" role="alert" aria-live="assertive" aria-atomic="true">
-              <div class="mail-preview-header">
-                <strong class="mail-preview-to">Alexanda.Wang@mailpool.xyz</strong>
-                <small class="mail-preview-received">11分钟之前</small>
-            <!--    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>-->
-              </div>
-              <div class="mail-preview-subject">
-                Hello, world! This is a toast message.
-              </div>
-            </div>
-
-            <div class="mail-preview" title="点击查看详情" role="alert" aria-live="assertive" aria-atomic="true">
-              <div class="mail-preview-header">
-                <strong class="mail-preview-to">Teddy.Qiu@mailpool.xyz</strong>
-                <small class="mail-preview-received">1小时之前</small>
-            <!--    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>-->
-              </div>
-              <div class="mail-preview-subject">
-                Wanna hang out? Come join me.
-              </div>
-            </div>
-
-            <div class="mail-preview" title="点击查看详情" role="alert" aria-live="assertive" aria-atomic="true">
-              <div class="mail-preview-header">
-                <strong class="mail-preview-to">Vivian.Zhang@mailpool.xyz</strong>
-                <small class="mail-preview-received">2天之前</small>
-            <!--    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>-->
-              </div>
-              <div class="mail-preview-subject">
-                Wanna hang out? Come join me.
-              </div>
-            </div>
+            %for mail in mailItems:
+                <a href="/addresses/{{mail[0]}}/messages/">
+                    <div class="mail-preview" title="点击查看详情" role="alert" aria-live="assertive" aria-atomic="true">
+                      <div class="mail-preview-header">
+                        <strong class="mail-preview-to">{{mail[0]}}</strong>
+                        <small class="mail-preview-received">{{mail[1]['received']}}</small>
+                      </div>
+                      <div class="mail-preview-subject">
+                        {{mail[1]['subject']}}
+                      </div>
+                    </div>
+                </a>
+            %end
         </div>
 
         <div class="view-inbox">
@@ -86,14 +67,14 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
     -->
-    <script src = "../js/faker.min.js" type = "text/javascript"></script>
-    <script src = "../js/custom.js" type = "text/javascript"></script>
+    <script src = "/static/js/faker.min.js" type = "text/javascript"></script>
+    <script src = "/static/js/custom.js" type = "text/javascript"></script>
 </body>
 </html>
